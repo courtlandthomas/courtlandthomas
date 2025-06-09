@@ -1,32 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Project</title>
-  <link rel="stylesheet" href="styles.css" />
-  <!-- Link to icon library -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-</head>
-<body>
-  <nav class="navbar">
-    <ul>
-      <li><a href="#"><i class="fas fa-home"></i></a></li>
-      <li><a href="#"><i class="fas fa-user"></i></a></li>
-      <li><a href="#"><i class="fas fa-image"></i></a></li>
-      <li><a href="#"><i class="fas fa-envelope"></i></a></li>
-    </ul>
-  </nav>
+/* styles.css */
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #fff;
+  color: #000;
+}
 
-  <header class="hero">
-    <h1>Your Name</h1>
-  </header>
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+}
 
-  <main class="grid">
-    <section class="grid-item">Content 1</section>
-    <section class="grid-item">Content 2</section>
-    <section class="grid-item">Content 3</section>
-    <section class="grid-item">Content 4</section>
-  </main>
-</body>
-</html>
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+}
+
+.navbar li {
+  margin: 0 15px;
+}
+
+.navbar a {
+  color: #000;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 40px;
+}
+
+.grid-item {
+  background-color: #f0f0f0;
+  padding: 20px;
+  text-align: center;
+}
