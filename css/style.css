@@ -1,25 +1,32 @@
-/* Stylez */
-body {font-family: Franklin Gothic Book, Source Sans Pro, Helvetica Neue, sans-serif; margin: 0 auto; background: #efefef; line-height: 1.8em; padding: 12px; box-sizing: border-box; color: #333;}
-body, html {height: 100%;}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Project</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Link to icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="#"><i class="fas fa-home"></i></a></li>
+      <li><a href="#"><i class="fas fa-user"></i></a></li>
+      <li><a href="#"><i class="fas fa-image"></i></a></li>
+      <li><a href="#"><i class="fas fa-envelope"></i></a></li>
+    </ul>
+  </nav>
 
-.wrapper {box-sizing: border-box; background: #fff; box-shadow: 0 0 5px #888; box-shadow: 0 0 5px #888; height: 100%; overflow: auto; }
+  <header class="hero">
+    <h1>Your Name</h1>
+  </header>
 
-
-a {color: #777; text-decoration: none; border-bottom: 1px solid #CCFF26;}
-a:hover {border-bottom: 1px solid #CCFF26; color: #222}
-p {font-weight: 200; font-size: 20px;}
-
-.name {font-family: Playfair Display; font-size: 50px; font-weight: 900; padding-bottom: 20px;}
-
-.container {margin: 0 auto; width: 600px; height: 400px; padding: 80px 12px; overflow:;}
-
-.photocontainer {margin: 0 auto; width:300;}
-
-.meta {text-transform: uppercase; font-family: Courier New, Quicksand, "Helvetica Neue", "Arial", sans-serif; font-size: 11px; letter-spacing: .15em;}
-.meta a:hover {border-bottom: 1px solid #CCFF26; color: #333;}
-
-.inline-list {list-style: none; margin: 0; padding: 0;}
-.inline-list li {display: inline-block;}
-
-footer .inline-list li {padding-right: 40px;}
-footer {margin: 0 auto; position: absolute; bottom: 0px; padding: 40px 0; width: 600px;}
+  <main class="grid">
+    <section class="grid-item">Content 1</section>
+    <section class="grid-item">Content 2</section>
+    <section class="grid-item">Content 3</section>
+    <section class="grid-item">Content 4</section>
+  </main>
+</body>
+</html>
