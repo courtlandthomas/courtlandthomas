@@ -35,7 +35,7 @@ body.custom-cursor {
   overflow: hidden;
   border-right: 0.15em solid #000;
   animation: typing 3s steps(30, end) forwards, blink .75s step-end infinite;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25); /* Optional: helps readability on bright background */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
 }
 
 @keyframes typing {
@@ -59,25 +59,45 @@ body.custom-cursor {
 }
 
 .box {
-  background: #f2f2f2;
+  background: #f7f7f7;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   font-size: 1.5rem;
-  padding: 2rem;
-  transition: background 0.3s ease;
+  padding: 3rem;
+  transition: background 0.3s ease, transform 0.3s ease;
   text-transform: lowercase;
+  opacity: 0;
+  transform: translateY(40px);
 }
 
 .box:hover {
-  background: #e0e0e0;
+  background: #e8e8e8;
   cursor: pointer;
 }
 
+.box.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Mobile Luxe */
 @media (max-width: 768px) {
   .main {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 1fr);
+    height: auto;
+  }
+
+  .box {
+    padding: 4rem 2rem;
+    font-size: 1.25rem;
+  }
+
+  .typewriter {
+    font-size: 2rem;
+    text-align: center;
   }
 }
