@@ -4,6 +4,16 @@
   <meta charset="UTF-8">
   <title>ciao, it’s courtland</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Courtland Thomas — creative strategist, writer, and DJ exploring storytelling, sound, and connection.">
+  <meta property="og:title" content="ciao, it’s courtland" />
+  <meta property="og:description" content="Explore the creative world of Courtland Thomas — from soundscapes to strategy." />
+  <meta property="og:image" content="https://www.courtlandthomas.com/assets/courtland-hero.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ciao, it’s courtland" />
+  <meta name="twitter:description" content="Creative strategist & DJ. Exploring sound, story, connection." />
+  <meta name="twitter:image" content="https://www.courtlandthomas.com/assets/courtland-hero.jpg" />
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -13,10 +23,10 @@
   </div>
 
   <div class="main" id="main">
-    <div class="box">storytelling & strategy</div>
-    <div class="box">sound & atmosphere</div>
-    <div class="box">experiences & explorations</div>
-    <div class="box">writing & reflection</div>
+    <div class="box scroll-fade">storytelling & strategy</div>
+    <div class="box scroll-fade">sound & atmosphere</div>
+    <div class="box scroll-fade">experiences & explorations</div>
+    <div class="box scroll-fade">writing & reflection</div>
   </div>
 
   <script>
@@ -29,7 +39,7 @@
       }, 1000);
     }, 4000);
 
-    // Emoji cursor logic
+    // Emoji cursor
     const emojiCursors = ['🪩', '🎛️', '🎧', '💔', '🌀', '📻', '🎵'];
     const chosenEmoji = emojiCursors[Math.floor(Math.random() * emojiCursors.length)];
     const canvas = document.createElement('canvas');
@@ -41,6 +51,18 @@
     const dataUrl = canvas.toDataURL();
     document.documentElement.style.setProperty('--cursor', `url(${dataUrl}) 16 16, auto`);
     document.body.classList.add('custom-cursor');
+
+    // Scroll reveal effect
+    const scrollBoxes = document.querySelectorAll('.scroll-fade');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    scrollBoxes.forEach(box => observer.observe(box));
   </script>
 </body>
 </html>
