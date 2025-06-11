@@ -5,104 +5,44 @@
   <title>ciao, it’s courtland</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body, html {
-      height: 100%;
-      font-family: 'DM Serif Display', serif;
-    }
-
-    /* --- WELCOME SCREEN --- */
-    .welcome {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #fefefe;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
-      transition: opacity 1s ease;
-    }
-
-    .typewriter {
-      font-size: 3rem;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 0.15em solid #000;
-      animation: typing 3s steps(30, end) forwards, blink .75s step-end infinite;
-    }
-
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 18ch }
-    }
-
-    @keyframes blink {
-      from, to { border-color: transparent }
-      50% { border-color: black }
-    }
-
-    /* --- MAIN CONTENT --- */
-    .main {
-      display: none;
-      height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      gap: 1px;
-    }
-
-    .box {
-      background: #f2f2f2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      font-size: 1.5rem;
-      padding: 2rem;
-      transition: background 0.3s ease;
-    }
-
-    .box:hover {
-      background: #e0e0e0;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      .main {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(4, 1fr);
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="welcome" id="welcome">
-    <div class="typewriter">ciao, it’s courtland</div>
+    <div class="overlay">
+      <div class="typewriter">ciao, it’s courtland</div>
+    </div>
   </div>
 
   <div class="main" id="main">
-    <div class="box">Storytelling & Strategy</div>
-    <div class="box">Sound & Atmosphere</div>
-    <div class="box">Experiences & Explorations</div>
-    <div class="box">Writing & Reflection</div>
+    <div class="box">storytelling & strategy</div>
+    <div class="box">sound & atmosphere</div>
+    <div class="box">experiences & explorations</div>
+    <div class="box">writing & reflection</div>
   </div>
 
   <script>
+    // Fade out welcome screen
     setTimeout(() => {
       document.getElementById('welcome').style.opacity = 0;
       setTimeout(() => {
         document.getElementById('welcome').style.display = 'none';
         document.getElementById('main').style.display = 'grid';
       }, 1000);
-    }, 4000); // 4 second delay
+    }, 4000);
+
+    // Emoji cursor logic
+    const emojiCursors = ['🪩', '🎛️', '🎧', '💔', '🌀', '📻', '🎵'];
+    const chosenEmoji = emojiCursors[Math.floor(Math.random() * emojiCursors.length)];
+    const canvas = document.createElement('canvas');
+    canvas.width = 32;
+    canvas.height = 32;
+    const ctx = canvas.getContext('2d');
+    ctx.font = '28px serif';
+    ctx.fillText(chosenEmoji, 0, 24);
+    const dataUrl = canvas.toDataURL();
+    document.documentElement.style.setProperty('--cursor', `url(${dataUrl}) 16 16, auto`);
+    document.body.classList.add('custom-cursor');
   </script>
 </body>
 </html>
