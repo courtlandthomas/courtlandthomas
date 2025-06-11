@@ -29,17 +29,13 @@ body.custom-cursor {
   transition: opacity 1s ease;
 }
 
-.overlay {
-  background: rgba(255, 255, 255, 0.5);
-  padding: 2rem 3rem;
-}
-
 .typewriter {
   font-size: 3rem;
   white-space: nowrap;
   overflow: hidden;
   border-right: 0.15em solid #000;
   animation: typing 3s steps(30, end) forwards, blink .75s step-end infinite;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25); /* Optional: helps readability on bright background */
 }
 
 @keyframes typing {
