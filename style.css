@@ -6,15 +6,13 @@
 
 body, html {
   min-height: 100%;
-  font-family: 'Playfair Display', serif;
+  font-family: 'DM Serif Display', serif;
 }
 
-/* Emoji Cursor */
 body.custom-cursor {
   cursor: var(--cursor), auto;
 }
 
-/* Welcome screen */
 .welcome {
   position: fixed;
   top: 0;
@@ -48,7 +46,6 @@ body.custom-cursor {
   50% { border-color: black }
 }
 
-/* Main content */
 .main {
   display: none;
   min-height: 100vh;
@@ -83,17 +80,14 @@ body.custom-cursor {
   transition: opacity 1s ease, transform 1s ease;
 }
 
-/* Footer credit */
 footer.credit {
   text-align: center;
-  font-size: 0.85rem;
-  padding: 2rem;
-  color: #777;
+  font-size: 0.75rem;
+  padding: 1.5rem;
+  color: #888;
   background-color: #f9f9f9;
-  font-style: italic;
 }
 
-/* Mobile enhancements */
 @media (max-width: 768px) {
   .main {
     grid-template-columns: 1fr;
