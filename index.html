@@ -14,7 +14,7 @@
   <meta name="twitter:description" content="Creative strategist & DJ. Exploring sound, story, connection." />
   <meta name="twitter:image" content="https://www.courtlandthomas.com/assets/courtland-hero.jpg" />
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -29,8 +29,12 @@
     <div class="box scroll-fade">writing & reflection</div>
   </div>
 
+  <footer class="credit">
+    Photo credit: Avery Ponce
+  </footer>
+
   <script>
-    // Fade out welcome screen
+    // Welcome screen fade-out
     setTimeout(() => {
       document.getElementById('welcome').style.opacity = 0;
       setTimeout(() => {
@@ -52,7 +56,7 @@
     document.documentElement.style.setProperty('--cursor', `url(${dataUrl}) 16 16, auto`);
     document.body.classList.add('custom-cursor');
 
-    // Scroll reveal effect
+    // Scroll animation
     const scrollBoxes = document.querySelectorAll('.scroll-fade');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
