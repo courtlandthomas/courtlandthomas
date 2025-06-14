@@ -1,30 +1,69 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Montserrat" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="icon" href="favicon.png" type="image/x-icon">
-    <title>Biography</title>
-  </head>
-  <body>
-    <div class="wrapper">
-    <div class="container">
-      <header>
-        <h1 class="name">About</h1>
-      </header>
-      <article>
-        <p>
-          Bio here.</p>
-      </article>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ciao, it’s courtland</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Courtland Thomas — creative strategist, writer, and DJ exploring storytelling, sound, and connection.">
+  <meta property="og:title" content="ciao, it’s courtland" />
+  <meta property="og:description" content="Explore the creative world of Courtland Thomas — from soundscapes to strategy." />
+  <meta property="og:image" content="https://www.courtlandthomas.com/assets/courtland-hero.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ciao, it’s courtland" />
+  <meta name="twitter:description" content="Creative strategist & DJ. Exploring sound, story, connection." />
+  <meta name="twitter:image" content="https://www.courtlandthomas.com/assets/courtland-hero.jpg" />
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="welcome" id="welcome">
+    <div class="typewriter">ciao, it’s courtland</div>
+  </div>
 
-    <footer>
-      <ul class="meta inline-list">
-        <li><a href="mailto:courtland.l.thomas@gmail.com">to.courtlandlthomas@gmail.com</a></li>
-        <li><a href="https://www.linkedin.com/in/courtlandthomas" target="_blank">linkedin/courtlandthomas</a></li>
-      </ul>
-    </footer>
+  <div class="main" id="main">
+    <div class="box scroll-fade">storytelling & strategy</div>
+    <div class="box scroll-fade">sound & atmosphere</div>
+    <div class="box scroll-fade">experiences & explorations</div>
+    <div class="box scroll-fade">writing & reflection</div>
   </div>
-  </div>
-  </body>
+
+  <footer class="credit">
+    Photo credit: Avery Ponce
+  </footer>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById('welcome').style.opacity = 0;
+      setTimeout(() => {
+        document.getElementById('welcome').style.display = 'none';
+        document.getElementById('main').style.display = 'grid';
+      }, 1000);
+    }, 4000);
+
+    const emojiCursors = ['🪩', '🎛️', '🎧', '💔', '🌀', '📻', '🎵'];
+    const chosenEmoji = emojiCursors[Math.floor(Math.random() * emojiCursors.length)];
+    const canvas = document.createElement('canvas');
+    canvas.width = 32;
+    canvas.height = 32;
+    const ctx = canvas.getContext('2d');
+    ctx.font = '28px serif';
+    ctx.fillText(chosenEmoji, 0, 24);
+    const dataUrl = canvas.toDataURL();
+    document.documentElement.style.setProperty('--cursor', `url(${dataUrl}) 16 16, auto`);
+    document.body.classList.add('custom-cursor');
+
+    const scrollBoxes = document.querySelectorAll('.scroll-fade');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    scrollBoxes.forEach(box => observer.observe(box));
+  </script>
+</body>
 </html>
