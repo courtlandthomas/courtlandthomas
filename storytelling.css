@@ -1,63 +1,74 @@
 body {
-  font-family: 'Prompt', sans-serif;
   margin: 0;
-  background: #fff;
-  color: #222;
+  font-family: 'Prompt', sans-serif;
+  background-color: #f9f9f9;
+  color: #111;
 }
 
-.back-link {
-  display: inline-block;
-  margin: 2rem;
-  font-size: 0.9rem;
-  text-decoration: none;
-  color: #555;
-}
-
-.back-link:hover {
-  text-decoration: underline;
-}
-
-.campaigns {
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
-  padding: 0 2rem 4rem;
-  max-width: 1000px;
+.container {
+  padding: 2rem;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.campaign .hero {
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-transform: lowercase;
+}
+
+.campaign {
+  margin-bottom: 4rem;
+}
+
+.hero {
   width: 100%;
-  height: auto;
+  max-height: 500px;
+  object-fit: cover;
   margin-bottom: 1rem;
-  cursor: zoom-in;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
 
 .grid img {
   width: 100%;
-  cursor: zoom-in;
-  transition: transform 0.3s ease;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  display: block;
+  margin: 0 auto;
 }
 
-.grid img.wide {
+.grid img:hover,
+.hero:hover {
+  transform: scale(1.02);
+}
+
+.centered {
   grid-column: span 2;
+  justify-self: center;
+  width: 50%;
 }
 
 .lightbox {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0,0,0,0.8);
-  display: flex;
-  align-items: center;
+  display: none;
   justify-content: center;
-  z-index: 999;
-  transition: opacity 0.3s ease;
+  align-items: center;
+  z-index: 100;
 }
 
 .lightbox img {
@@ -66,20 +77,12 @@ body {
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
-.lightbox.hidden {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .grid img.wide {
-    grid-column: span 1;
-  }
-
-  .back-link {
-    margin: 1rem;
-  }
+.back-button {
+  display: block;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  color: #444;
+  text-decoration: underline;
+  cursor: pointer;
 }
