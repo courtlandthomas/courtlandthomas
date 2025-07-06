@@ -1,0 +1,85 @@
+body {
+  font-family: 'Prompt', sans-serif;
+  margin: 0;
+  background: #fff;
+  color: #222;
+}
+
+.back-link {
+  display: inline-block;
+  margin: 2rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #555;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.campaigns {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 0 2rem 4rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.campaign .hero {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  cursor: zoom-in;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.grid img {
+  width: 100%;
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+
+.grid img.wide {
+  grid-column: span 2;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.lightbox.hidden {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid img.wide {
+    grid-column: span 1;
+  }
+
+  .back-link {
+    margin: 1rem;
+  }
+}
