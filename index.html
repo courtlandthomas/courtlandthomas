@@ -10,10 +10,12 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="welcome" id="welcome">
+  <!-- Welcome screen -->
+  <div class="welcome" id="welcome" aria-label="intro">
     <div class="typewriter">ciao</div>
   </div>
 
+  <!-- Main menu -->
   <div class="main" id="main">
     <div class="box scroll-fade" onclick="window.location.href='storytelling.html'">storytelling & strategy</div>
     <div class="box scroll-fade">sound & atmosphere</div>
@@ -21,9 +23,12 @@
     <div class="box scroll-fade">writing & reflection</div>
   </div>
 
+  <!-- Footer -->
   <footer class="credit">Photo credit: Avery Ponce</footer>
 
-  <script>
+  <!-- Scripts -->
+  <script defer>
+    // Transition from welcome to main
     setTimeout(() => {
       document.getElementById('welcome').style.opacity = 0;
       setTimeout(() => {
@@ -32,16 +37,20 @@
       }, 1000);
     }, 4000);
 
+    // Random emoji cursor
     const emojiCursors = ['🪩', '🎛️', '🎧', '💔', '🌀', '📻', '🎵'];
     const chosenEmoji = emojiCursors[Math.floor(Math.random() * emojiCursors.length)];
     const canvas = document.createElement('canvas');
-    canvas.width = 32; canvas.height = 32;
+    canvas.width = 32;
+    canvas.height = 32;
     const ctx = canvas.getContext('2d');
     ctx.font = '28px serif';
     ctx.fillText(chosenEmoji, 0, 24);
-    document.documentElement.style.setProperty('--cursor', `url(${canvas.toDataURL()}) 16 16, auto`);
+    const cursorURL = canvas.toDataURL();
+    document.documentElement.style.setProperty('--cursor', `url(${cursorURL}) 16 16, auto`);
     document.body.classList.add('custom-cursor');
 
+    // Scroll fade-in observer
     const scrollBoxes = document.querySelectorAll('.scroll-fade');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
