@@ -6,87 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Brand campaigns led by Courtland Thomas — creative strategy, storytelling, and design.">
   <link rel="stylesheet" href="storytelling.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Prompt', sans-serif;
-      background-color: #f9f9f9;
-      color: #111;
-    }
-
-    .container {
-      padding: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      text-transform: lowercase;
-    }
-
-    .campaign {
-      margin-bottom: 4rem;
-    }
-
-    .hero {
-      width: 100%;
-      max-height: 500px;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-
-    .grid img {
-      width: 100%;
-      height: auto;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-
-    .grid img:hover,
-    .hero:hover {
-      transform: scale(1.02);
-    }
-
-    .lightbox {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.8);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 100;
-    }
-
-    .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    }
-
-    .back-button {
-      display: block;
-      text-align: center;
-      margin-bottom: 2rem;
-      font-size: 1rem;
-      color: #444;
-      text-decoration: underline;
-      cursor: pointer;
-    }
-  </style>
 </head>
 <body>
   <div class="container">
@@ -99,17 +18,17 @@
       <div class="grid">
         <img src="campaigns/brand1/img1.png" alt="">
         <img src="campaigns/brand1/img2.png" alt="">
-        <img src="campaigns/brand1/img3.png" alt="">
+        <img class="centered" src="campaigns/brand1/img3.png" alt="">
       </div>
     </div>
 
     <!-- Brand Campaign 2 -->
     <div class="campaign">
-      <img class="hero" src="campaigns/brand2/main.jpeg" alt="Hero image for brand 2">
+      <img class="hero" src="campaigns/brand2/main.jpg" alt="Hero image for brand 2">
       <div class="grid">
         <img src="campaigns/brand2/img1.gif" alt="">
-        <img src="campaigns/brand2/img2.jpeg" alt="">
-      
+        <img src="campaigns/brand2/img2.jpg" alt="">
+        <img src="campaigns/brand2/img3.jpg" alt="">
       </div>
     </div>
   </div>
