@@ -4,52 +4,132 @@
   <meta charset="UTF-8">
   <title>storytelling & strategy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Brand campaigns led by Courtland Thomas — creative strategy, storytelling, and design.">
   <link rel="stylesheet" href="storytelling.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Prompt', sans-serif;
+      background-color: #f9f9f9;
+      color: #111;
+    }
+
+    .container {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-transform: lowercase;
+    }
+
+    .campaign {
+      margin-bottom: 4rem;
+    }
+
+    .hero {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .grid img {
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .grid img:hover,
+    .hero:hover {
+      transform: scale(1.02);
+    }
+
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    .back-button {
+      display: block;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+      color: #444;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <a class="back-link" href="index.html">← back</a>
+  <div class="container">
+    <div class="back-button" onclick="window.location.href='index.html'">← back to main</div>
+    <h1>storytelling & strategy</h1>
 
-  <main class="campaigns">
-    <!-- Campaign 1 -->
-    <section class="campaign">
-      <img class="hero" src="campaigns/brand1/main.jpg" alt="Main image for Brand Campaign 1">
+    <!-- Brand Campaign 1 -->
+    <div class="campaign">
+      <img class="hero" src="campaigns/brand1/main.jpg" alt="Hero image for brand 1">
       <div class="grid">
         <img src="campaigns/brand1/img1.jpg" alt="">
         <img src="campaigns/brand1/img2.jpg" alt="">
-        <img class="wide" src="campaigns/brand1/img3.jpg" alt="">
+        <img src="campaigns/brand1/img3.jpg" alt="">
+        <img src="campaigns/brand1/img4.jpg" alt="">
       </div>
-    </section>
+    </div>
 
-    <!-- Campaign 2 -->
-    <section class="campaign">
-      <img class="hero" src="campaigns/brand2/main.jpg" alt="Main image for Brand Campaign 2">
+    <!-- Brand Campaign 2 -->
+    <div class="campaign">
+      <img class="hero" src="campaigns/brand2/main.jpg" alt="Hero image for brand 2">
       <div class="grid">
         <img src="campaigns/brand2/img1.gif" alt="">
         <img src="campaigns/brand2/img2.jpg" alt="">
+        <img src="campaigns/brand2/img3.jpg" alt="">
       </div>
-    </section>
-  </main>
+    </div>
+  </div>
 
   <!-- Lightbox -->
-  <div id="lightbox" class="lightbox hidden">
+  <div class="lightbox" id="lightbox" onclick="this.style.display='none'">
     <img id="lightbox-img" src="" alt="">
   </div>
 
   <script>
+    const images = document.querySelectorAll('.grid img, .hero');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
 
-    document.querySelectorAll('.grid img, .hero').forEach(img => {
+    images.forEach(img => {
       img.addEventListener('click', () => {
         lightboxImg.src = img.src;
-        lightbox.classList.remove('hidden');
+        lightbox.style.display = 'flex';
       });
-    });
-
-    lightbox.addEventListener('click', () => {
-      lightbox.classList.add('hidden');
-      lightboxImg.src = '';
     });
   </script>
 </body>
