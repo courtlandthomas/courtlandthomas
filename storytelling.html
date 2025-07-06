@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>storytelling & strategy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="storytelling.css">
+</head>
+<body>
+  <a class="back-link" href="index.html">← back</a>
+
+  <main class="campaigns">
+    <!-- Campaign 1 -->
+    <section class="campaign">
+      <img class="hero" src="campaigns/brand1/main.jpg" alt="Main image for Brand Campaign 1">
+      <div class="grid">
+        <img src="campaigns/brand1/img1.jpg" alt="">
+        <img src="campaigns/brand1/img2.jpg" alt="">
+        <img class="wide" src="campaigns/brand1/img3.jpg" alt="">
+      </div>
+    </section>
+
+    <!-- Campaign 2 -->
+    <section class="campaign">
+      <img class="hero" src="campaigns/brand2/main.jpg" alt="Main image for Brand Campaign 2">
+      <div class="grid">
+        <img src="campaigns/brand2/img1.gif" alt="">
+        <img src="campaigns/brand2/img2.jpg" alt="">
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox hidden">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    document.querySelectorAll('.grid img, .hero').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.remove('hidden');
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.add('hidden');
+      lightboxImg.src = '';
+    });
+  </script>
+</body>
+</html>
