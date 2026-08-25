@@ -1,104 +1,157 @@
-body, html {
-  min-height: 100%;
-  font-family: 'Prompt', sans-serif;
+:root {
+  --page-gutter: clamp(20px, 3.2vw, 52px);
+  --text: #111111;
+  --muted: #777777;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
-body.custom-cursor {
-  cursor: var(--cursor), auto;
+html {
+  background: #ffffff;
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
 }
 
-.welcome {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: url('assets/courtland-hero.jpg') no-repeat center center/cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-  transition: opacity 1s ease;
-}
-
-.typewriter {
-  font-size: 3rem;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 0.15em solid #000;
-  animation: typing 2.5s steps(10, end) forwards, blink .75s step-end infinite;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 5ch }
-}
-
-@keyframes blink {
-  from, to { border-color: transparent }
-  50% { border-color: black }
-}
-
-.main {
-  display: none;
+body {
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 1px;
+  margin: 0;
+  background: #ffffff;
 }
 
-.box {
-  background: #f7f7f7;
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 28px var(--page-gutter) 0;
+}
+
+.wordmark {
+  flex: 0 0 auto;
+  font-size: clamp(24px, 2.2vw, 34px);
+  font-weight: 300;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2.2vw, 36px);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+.site-nav a {
+  position: relative;
+  padding-bottom: 3px;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 160ms ease;
+}
+
+.site-nav a:hover::after,
+.site-nav a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.wordmark:focus-visible,
+.site-nav a:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 5px;
+}
+
+.home-main {
   display: flex;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 1.5rem;
-  padding: 3rem;
-  transition: background 0.3s ease, transform 0.3s ease;
-  text-transform: lowercase;
-  opacity: 0;
-  transform: translateY(40px);
+  padding: clamp(64px, 8vw, 118px) var(--page-gutter) clamp(48px, 7vw, 96px);
 }
 
-.box:hover {
-  background: #e8e8e8;
-  cursor: pointer;
+.home-image-wrap {
+  margin: 0;
 }
 
-.box.visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 1s ease, transform 1s ease;
+.home-image {
+  display: block;
+  width: 65vw;
+  max-width: 980px;
+  height: auto;
+  object-fit: contain;
 }
 
-footer.credit {
-  text-align: center;
-  font-size: 0.75rem;
-  padding: 1.5rem;
-  color: #888;
-  background-color: #f9f9f9;
+.section-main {
+  min-height: calc(100vh - 80px);
+  padding: clamp(92px, 14vw, 190px) var(--page-gutter) 80px;
 }
 
-@media (max-width: 768px) {
-  .main {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 1fr);
+.section-main h1 {
+  margin: 0;
+  font-size: clamp(42px, 7vw, 104px);
+  font-weight: 300;
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+}
+
+@media (max-width: 700px) {
+  .site-header {
+    align-items: flex-start;
+    gap: 20px;
+    padding-top: 22px;
   }
 
-  .box {
-    padding: 4rem 2rem;
-    font-size: 1.25rem;
+  .wordmark {
+    font-size: 24px;
   }
 
-  .typewriter {
-    font-size: 2rem;
-    text-align: center;
+  .site-nav {
+    gap: 14px;
+    font-size: 12px;
+    padding-top: 3px;
+  }
+
+  .home-main {
+    padding-top: 52px;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .home-image {
+    width: 92vw;
+    max-width: none;
+  }
+
+  .section-main {
+    padding-top: 96px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-nav a::after {
+    transition: none;
   }
 }
