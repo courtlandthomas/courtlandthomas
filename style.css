@@ -139,12 +139,45 @@ a {
   width: 100%;
   max-width: 760px;
   margin-top: clamp(64px, 9vw, 124px);
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .soundcloud-player {
   display: block;
   width: 100%;
   border: 0;
+}
+
+
+.editorial-scroll {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(28px, 3.6vw, 58px);
+  width: 100%;
+  margin-top: clamp(64px, 9vw, 124px);
+  padding: 0 0 22px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.editorial-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.editorial-photo {
+  display: block;
+  flex: 0 0 auto;
+  width: auto;
+  height: clamp(300px, 46vw, 560px);
+  max-width: none;
+  object-fit: contain;
+  scroll-snap-align: start;
 }
 
 .words-list {
@@ -214,6 +247,12 @@ a {
   line-height: 0.95;
 }
 
+@media (max-width: 1000px) and (min-width: 701px) {
+  .editorial-photo {
+    height: 400px;
+  }
+}
+
 @media (max-width: 700px) {
   .site-header {
     align-items: flex-start;
@@ -255,6 +294,16 @@ a {
   .dj-mixes {
     gap: 48px;
     margin-top: 56px;
+  }
+
+  .editorial-scroll {
+    gap: 22px;
+    margin-top: 56px;
+    padding-bottom: 16px;
+  }
+
+  .editorial-photo {
+    height: 300px;
   }
 }
 
