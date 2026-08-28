@@ -12,11 +12,11 @@
   <meta property="og:title" content="Courtland Thomas | Growth & GTM Strategist, Event Producer & Writer">
   <meta property="og:description" content="Courtland Thomas is a New York-based growth and go-to-market strategist, event producer, writer, DJ, and photographer working across marketing strategy, acquisition, events, and culture.">
   <meta property="og:url" content="https://www.courtlandthomas.com/">
-  <meta property="og:image" content="https://www.courtlandthomas.com/assets/courtland-home.jpg">
+  <meta property="og:image" content="https://www.courtlandthomas.com/assets/home-daisies.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Courtland Thomas | Growth & GTM Strategist, Event Producer & Writer">
   <meta name="twitter:description" content="Courtland Thomas is a New York-based growth and go-to-market strategist, event producer, writer, DJ, and photographer working across marketing strategy, acquisition, events, and culture.">
-  <meta name="twitter:image" content="https://www.courtlandthomas.com/assets/courtland-home.jpg">
+  <meta name="twitter:image" content="https://www.courtlandthomas.com/assets/home-daisies.jpg">
   <link rel="icon" href="assets/favicon.ico">
   <link rel="stylesheet" href="style.css">
   <script type="application/ld+json">
@@ -25,7 +25,7 @@
   "@type": "Person",
   "name": "Courtland Thomas",
   "url": "https://www.courtlandthomas.com/",
-  "image": "https://www.courtlandthomas.com/assets/courtland-home.jpg",
+  "image": "https://www.courtlandthomas.com/assets/home-daisies.jpg",
   "jobTitle": "Growth & GTM Strategist",
   "description": "New York-based growth and go-to-market strategist, event producer, writer, DJ, and photographer working across marketing strategy, customer acquisition, events, and culture.",
   "homeLocation": {
@@ -53,21 +53,60 @@
     <h1 class="wordmark-heading"><a class="wordmark" href="index.html" aria-label="Courtland Thomas home">Courtland</a></h1>
     <nav class="site-nav" aria-label="Primary navigation">
       <a href="events.html">Events</a>
-      <a href="dj.html">Tunes</a>
       <a href="words.html">Words</a>
+      <a href="dj.html">Tunes</a>
       <a href="photos.html">Photos</a>
-      <a href="strategy.html">Strategy</a>
+      <a class="nav-contact" href="mailto:courtland.thomas.writing@gmail.com">Contact</a>
     </nav>
   </header>
 
   <main class="home-main">
     <div class="home-content">
-      <figure class="home-image-wrap">
-        <img class="home-image" src="assets/courtland-daisies.jpg" alt="Contact-sheet portraits of Courtland Thomas in a TWA photo booth">
-      </figure>
+      <figure class="home-image-wrap home-gallery" data-home-gallery>
+        <button class="home-image-button" type="button" aria-label="Show next homepage photo">
+          <img class="home-image" src="assets/home-daisies.jpg" alt="Courtland Thomas reclining in a field of wildflowers">
+        </button>
+
+      <button class="home-gallery-arrow" type="button" aria-label="Show next homepage photo">→</button>
+    </figure>
       <a class="home-contact" href="mailto:courtland.thomas.writing@gmail.com">contact: courtland.thomas.writing [at] gmail.com</a>
-      <a class="home-photo-credit" href="https://www.victoriacampa.com/#1" target="_blank" rel="noopener noreferrer">Photo © Victoria Campa</a>
+      Photos © <a class="home-photo-credit" href="https://www.victoriacampa.com/#1" target="_blank" rel="noopener noreferrer">Victoria Campa</a>, Maria G.
     </div>
   </main>
+  <script>
+    (() => {
+      const gallery = document.querySelector('[data-home-gallery]');
+      if (!gallery) return;
+
+      const imageButton = gallery.querySelector('.home-image-button');
+      const arrowButton = gallery.querySelector('.home-gallery-arrow');
+      const image = gallery.querySelector('.home-image');
+      const photos = [
+        { src: 'assets/home-daisies.jpg', alt: 'Courtland Thomas reclining in a field of wildflowers', position: 'center center' },
+        { src: 'assets/home-portrait-1.png', alt: 'Courtland Thomas standing outdoors in a striped white shirt and sunglasses', position: 'center center' },
+        { src: 'assets/home-portrait-2.jpg', alt: 'Courtland Thomas smiling while holding papers and speaking on a phone outdoors', position: 'center 42%' }
+      ];
+      let index = 0;
+      image.style.objectPosition = photos[0].position;
+
+      const update = () => {
+        image.classList.add('is-switching');
+        window.setTimeout(() => {
+          index = (index + 1) % photos.length;
+          image.src = photos[index].src;
+          image.alt = photos[index].alt;
+          image.style.objectPosition = photos[index].position;
+          arrowButton.textContent = '→';
+          imageButton.setAttribute('aria-label', 'Show next homepage photo');
+          arrowButton.setAttribute('aria-label', 'Show next homepage photo');
+          image.classList.remove('is-switching');
+        }, 90);
+      };
+
+      imageButton.addEventListener('click', update);
+      arrowButton.addEventListener('click', update);
+    })();
+  </script>
+
 </body>
 </html>
