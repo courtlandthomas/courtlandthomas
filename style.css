@@ -647,7 +647,8 @@ a {
 }
 
 .home-photo-credit-line {
-  display: inline;
+  display: block;
+  margin-top: 16px;
   white-space: nowrap;
   font: inherit;
   font-size: inherit;
