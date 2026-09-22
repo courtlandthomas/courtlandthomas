@@ -549,9 +549,9 @@ a {
 
 @media (min-width: 701px) {
   .home-gallery .home-image {
-    width: auto;
-    max-width: min(65vw, 760px);
-    height: min(72vh, 860px);
+    width: 100%;
+    max-width: none;
+    height: 100%;
   }
 }
 
@@ -687,15 +687,17 @@ a {
 /* Desktop homepage positioning */
 @media (min-width: 769px) {
   .home-main {
-    min-height: calc(100vh - 96px);
+    min-height: calc(100vh - 70px);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    padding-top: 11vh;
+    justify-content: center;
+    padding-top: 32px;
+    padding-bottom: 48px;
   }
 
   .home-gallery {
+    width: min(70vw, 720px, 54vh);
     margin-left: auto;
     margin-right: auto;
   }
