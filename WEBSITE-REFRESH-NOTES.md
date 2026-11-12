@@ -17,3 +17,12 @@
 5. Check canonical URLs, sitemap, and contact links after deployment.
 
 The ZIP is a prepared site package. It has not been pushed to GitHub or deployed to the live domain.
+
+
+## Modeling page follow-up — November 12, 2026
+- Replaced the Editorial image with the newly supplied wildflower photograph.
+- Rebuilt the portfolio layout into two stable columns: Editorial and Portrait on the left; Lifestyle, Full-length, and Commercial on the right.
+- Moved Portrait directly beneath Editorial.
+- Renamed “Commercial / Lifestyle” to “Commercial.”
+- Removed the modeling/casting/on-camera inquiry block from the page.
+- On narrow screens, the two columns stack in a single column to avoid the previous broken grid behavior.
