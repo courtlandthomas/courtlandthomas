@@ -932,6 +932,21 @@ a {
 }
 
 
+/* Match section-page vertical spacing to the Video and Portraits pages */
+.section-main.editorial-main,
+.section-main.strategy-main,
+.section-main.words-main {
+  padding-top: clamp(75px, 11vw, 150px);
+}
+
+@media (max-width: 760px) {
+  .section-main.editorial-main,
+  .section-main.strategy-main,
+  .section-main.words-main {
+    padding-top: 78px;
+  }
+}
+
 /* Consistent page-title scale across portfolio sections */
 .section-main > h1,
 .portfolio-main > h1 {
